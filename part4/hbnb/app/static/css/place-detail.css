@@ -1,0 +1,134 @@
+@import url("root.css");
+
+.review-card{
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.place-description {
+    flex: 2;
+}
+
+.place-amenities {
+    padding: 20px;
+    border: solid 1px #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.place-amenities img {
+    border: 0;
+    height: 24px;
+    width: auto;
+}
+
+.reviews-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #ddd;
+    background-color: white;
+}
+
+.sticky {
+    position: unset;
+}
+
+.sticky-0{
+    top: unset;
+}
+
+.sticky-112{
+    top: unset;
+}
+
+.review-card:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.place-host, .review-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.place-host {
+    margin-top: 10px;
+}
+
+.reviewer p{
+    margin-bottom: 12px;
+    line-height: 0;
+}
+
+.reviewer-stars {
+    display: inline-flex;
+    align-items: center;
+    gap:3px;
+}
+
+.reviewer-stars p {
+    margin: 0;
+}
+
+img.stars {
+    height: 12px;
+    width: auto;
+}
+
+.review-text{
+    margin-left: 70px;
+}
+
+.columns {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.place-card-columns {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.col-left {
+    flex: 1;
+}
+
+.col-right {
+    max-width: 100%;
+}
+
+.top-padding {
+    padding-top: 40px;
+}
+
+@media screen and (width >= 54rem) {
+    .place-card-columns {
+        flex-direction: row;
+    }
+}
+
+@media screen and (width >= 79rem) {
+    .sticky {
+        position: sticky;
+    }
+
+    .sticky-0{
+        top: 0;
+    }
+
+    .sticky-112{
+        top:110px;
+    }
+
+    .columns {
+        flex-direction: row;
+    }
+
+    .col-right {
+        max-width: 40%;
+    }
+} 

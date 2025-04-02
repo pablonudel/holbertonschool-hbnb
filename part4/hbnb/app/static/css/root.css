@@ -1,0 +1,7 @@
+:root {
+    --font-family-base: "Inter", sans-serif;
+    --font--size-base: 14px;
+    --shadow--transitions: box-shadow 0.2s;
+    --color--red: #E0133D;
+    --button--transition: background-color 0.2s, color 0.2s;
+}

@@ -1,0 +1,44 @@
+@import url("root.css");
+
+.details-button {
+    border: solid 1px var(--color--red);
+    color: var(--color--red);
+    transition: var(--button--transition);
+}
+
+.details-button:hover {
+    border: solid 1px var(--color--red);
+    background-color: var(--color--red);
+    color: white;
+}
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+select {
+    border: solid 1px #ddd;
+    border-radius: 32px;
+    padding: 0.5rem 1rem;
+    width: 70px;
+     -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+}
+
+.custom-select::after {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) scaleY(0.8);
+    pointer-events: none;
+    color: var(--color--red);
+    font-size: 12px;
+}
+
+#places-list {
+    display: grid;
+    gap: 20px;
+}

@@ -12,73 +12,149 @@
 <body>
     <header>
         <div class="container flex-container">
-            <a href="/"><img class="logo" src="../static/images/logo.svg" alt="HBnB Evolution"></a>
+            <a href="./index.html"><img class="logo" src="../static/images/logo.svg" alt="HBnB Evolution"></a>
             <nav class="navigation-nav">
                 <ul>
-                    <li><a class="button" href="/login">Login</a></li>
+                     <li><a id="login-button" class="button" href="#">Login</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <div class="container container-narrow">
-            <div class="section-header">
+        <div class="container">
+            <div class="section-header sticky sticky-0">
                 <h1>Seaside Serenity Cottage</h1>
             </div>
-            <section id="place-detail">
-                <article class="place-card">
-                    <div class="place-price">
-                        <p>$80 <br><small>per night</small></p>
+            <div class="columns">
+                <section id="place-detail" class="col-left">
+                    <div class="sticky sticky-110">
+                        <article class="place-card">
+                            <div class="place-price">
+                                <p>$80 <br><small>per night</small></p>
+                            </div>
+                            <div class="card-img-container">
+                                <img src="../static/images/places/01/01.jpg" alt="">
+                            </div>
+                            <div class="card-body">
+                                <div class="place-host">
+                                    <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
+                                    <p>Hosted by <strong>Pablo</strong><br><small>since 21/02/2000</small></p>
+                                </div>
+                                <div class="place-description">
+                                    <h2>Description</h2>
+                                    <p>Relax in our charming seaside cottage with stunning ocean views and tranquil sunsets. Perfect for a peaceful getaway.</p>
+                                </div>
+                                <div class="place-amenities">
+                                    <div class="amenity tooltip">
+                                        <img src="../static/images/amenities/wifi.svg" alt="wifi"/>
+                                        <span class="tooltiptext"><small>Wifi</small></span>
+                                    </div>
+                                    <div class="amenity tooltip">
+                                        <img src="../static/images/amenities/swiming-pool.svg" alt="Swiming pool"/>
+                                        <span class="tooltiptext"><small>Swiming pool</small></span>
+                                    </div>
+                                    <div class="amenity tooltip">
+                                        <img src="../static/images/amenities/ac.svg" alt="Air conditioner"/>
+                                        <span class="tooltiptext"><small>A/C</small></span>
+                                    </div>
+                                    <div class="amenity tooltip">
+                                        <img src="../static/images/amenities/parking.svg" alt="Parking"/>
+                                        <span class="tooltiptext"><small>Parking</small></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="place-footer">
+                                <button id="review-button" class="button details-button">Add Review</b>
+                            </div>
+                        </article>
                     </div>
-                    <img src="../static/images/places/01/Firefly Seaside Serenity Cottage interior 36190.jpg" alt="">
-                    <div class="card-body">
-                        <div class="place-host">
-                            <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
-                            <p>Hosted by <strong>Pablo</strong><br><small>since 21/02/2000</small></p>
-                        </div>
-                        <div class="col-2">
-                            <div>
-                                <h2>Description</h2>
-                                <p>Relax in our charming seaside cottage with stunning ocean views and tranquil sunsets. Perfect for a peaceful getaway.</p>
-                            </div>
-                            <div class="card-info">
-                                <h2>Amenities</h2>
-
-                            </div>
+                </section>
+                <aside id="place-reviews" class="col-right">
+                    <div class="reviews-header flex-container sticky sticky-110">
+                        <h2>Reviews</h2>
+                        <div class="flex-container">
+                            <div class="review-avg"><img class="star-icon" src="../static/images/star.svg" alt="star"><p>4.3 / 2 reviews</p></div>
                         </div>
                     </div>
-                </article>
-            </section>
-            <section id="place-reviews">
-                <div class="subsection-header flex-container">
-                    <h2>Reviews</h2>
-                    <div class="flex-container">
-                        <div class="review-avg"><img class="star-icon" src="../static/images/star.svg" alt="star"><p>4.3 / 2 reviews</p></div>
+                    <div class="review-list">
+                        <article class="review-card">
+                            <div class="review-header">
+                                <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
+                                <div class="reviewer">
+                                    <p><strong>John</strong></p>
+                                    <div class="reviewer-stars">
+                                        <div>
+                                            <img class="stars" src="../static/images/4-stars.svg" alt="star">
+                                        </div>
+                                        <p><small>- 21/02/2000</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">A solid choice for a comfortable stay. The location was good, and the overall experience was positive. I'd recommend it.</p>
+                        </article>
+                        <article class="review-card">
+                            <div class="review-header">
+                                <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
+                                <div class="reviewer">
+                                    <p><strong>John</strong></p>
+                                    <div class="reviewer-stars">
+                                        <div>
+                                            <img class="stars" src="../static/images/4-stars.svg" alt="star">
+                                        </div>
+                                        <p><small>- 21/02/2000</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">A solid choice for a comfortable stay. The location was good, and the overall experience was positive. I'd recommend it.</p>
+                        </article>
+                        <article class="review-card">
+                            <div class="review-header">
+                                <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
+                                <div class="reviewer">
+                                    <p><strong>John</strong></p>
+                                    <div class="reviewer-stars">
+                                        <div>
+                                            <img class="stars" src="../static/images/4-stars.svg" alt="star">
+                                        </div>
+                                        <p><small>- 21/02/2000</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">A solid choice for a comfortable stay. The location was good, and the overall experience was positive. I'd recommend it.</p>
+                        </article>
+                        <article class="review-card">
+                            <div class="review-header">
+                                <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
+                               <div class="reviewer">
+                                    <p><strong>John</strong></p>
+                                    <div class="reviewer-stars">
+                                        <div>
+                                            <img class="stars" src="../static/images/4-stars.svg" alt="star">
+                                        </div>
+                                        <p><small>- 21/02/2000</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">A solid choice for a comfortable stay. The location was good, and the overall experience was positive. I'd recommend it.</p>
+                        </article>
+                        <article class="review-card">
+                            <div class="review-header">
+                                <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
+                                <div class="reviewer">
+                                    <p><strong>John</strong></p>
+                                    <div class="reviewer-stars">
+                                        <div>
+                                            <img class="stars" src="../static/images/4-stars.svg" alt="star">
+                                        </div>
+                                        <p><small>- 21/02/2000</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="review-text">A solid choice for a comfortable stay. The location was good, and the overall experience was positive. I'd recommend it.</p>
+                        </article>
                     </div>
-                </div>
-                <div class="review-list">
-                    <article class="review-card">
-                        <div class="review-header">
-                            <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
-                            <div>
-                                <p><strong>John</strong><br>
-                                <small>estrellas y fecha</small></p>
-                            </div>
-                        </div>
-                        <p class="review-text">A solid choice for a comfortable stay. The location was good, and the overall experience was positive. I'd recommend it.</p>
-                    </article>
-                    <article class="review-card">
-                        <div class="review-header">
-                            <img class="avatar" src="../static/images/avatars/pic-person-03.jpg" alt="avatar">
-                            <div>
-                                <p><strong>John</strong><br>
-                                <small>estrellas y fecha</small></p>
-                            </div>
-                        </div>
-                        <p class="review-text">A solid choice for a comfortable stay. The location was good, and the overall experience was positive. I'd recommend it.</p>
-                    </article>
-                </div>
-            </section>
+                </aside>
+            </div>
         </div>
     </main>
     <footer>
@@ -86,5 +162,62 @@
             <p>© 2025 HBnB Evolution. All rights reserved.</p>
         </div>
     </footer>
+    <!-- Review Modal --> 
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-review">&times;</span>
+            <form id="review-form">
+                <h2>Add a Review</h2>
+                <div>
+                    <label for="review">Your Review</label><br>
+                    <textarea id="review" name="review" rows="4" required></textarea>
+                </div>
+                <div class="review-stars">
+                    <label for="rating">Rating</label><br>
+                    
+                    <fieldset class="starability-basic">
+                        <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+
+                        <input type="radio" id="rate1" name="rating" value="1" />
+                        <label for="rate1">1 star.</label>
+
+                        <input type="radio" id="rate2" name="rating" value="2" />
+                        <label for="rate2">2 stars.</label>
+
+                        <input type="radio" id="rate3" name="rating" value="3" />
+                        <label for="rate3">3 stars.</label>
+
+                        <input type="radio" id="rate4" name="rating" value="4" />
+                        <label for="rate4">4 stars.</label>
+
+                        <input type="radio" id="rate5" name="rating" value="5" />
+                        <label for="rate5">5 stars.</label>
+
+                        <span class="starability-focus-ring"></span>
+                    </fieldset>
+                </div>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-login">&times;</span>
+            <form id="login-form">
+                <h2>Login</h2>
+                <div>
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your email..." required>
+                </div>
+                <div>
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" name="password" placeholder="Your password...">
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="../static/js/script.js"></script>
 </body>
 </html>

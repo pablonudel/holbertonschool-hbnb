@@ -1,12 +1,13 @@
 @import url("root.css");
 
-.details-button {
-    border: solid 1px var(--color--red);
-    color: var(--color--red);
+a.details-button, button.details-button {
+    border: solid 1px #ddd;
+    color: black;
     transition: var(--button--transition);
+    background-color: white;
 }
 
-.details-button:hover {
+a.details-button:hover, button.details-button:hover {
     border: solid 1px var(--color--red);
     background-color: var(--color--red);
     color: white;

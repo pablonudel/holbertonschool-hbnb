@@ -5,23 +5,39 @@
     border-radius: 10px;
 }
 
-.place-description {
-    flex: 2;
+.place-description p{
+    line-height: 1.5rem;
 }
 
 .place-amenities {
-    padding: 20px;
-    border: solid 1px #ddd;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    flex: 1;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.place-amenities img {
+.amenity {
+    border: solid 1px #ddd;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+.amenity img {
     border: 0;
-    height: 24px;
+    height: 20px;
     width: auto;
+}
+
+.place-footer {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    border-top: solid 1px #ddd;
 }
 
 .reviews-header {
@@ -39,7 +55,7 @@
     top: unset;
 }
 
-.sticky-112{
+.sticky-110{
     top: unset;
 }
 
@@ -87,12 +103,6 @@ img.stars {
     flex-direction: column;
 }
 
-.place-card-columns {
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-}
-
 .col-left {
     flex: 1;
 }
@@ -120,7 +130,7 @@ img.stars {
         top: 0;
     }
 
-    .sticky-112{
+    .sticky-110{
         top:110px;
     }
 

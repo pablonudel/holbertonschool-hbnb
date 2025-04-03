@@ -13,10 +13,10 @@
 <body>
     <header>
         <div class="container flex-container">
-            <a href="/"><img class="logo" src="../static/images/logo.svg" alt="HBnB Evolution"></a>
+            <a href="./index.html"><img class="logo" src="../static/images/logo.svg" alt="HBnB Evolution"></a>
             <nav class="navigation-nav">
                 <ul>
-                    <li><a class="button" href="/login">Login</a></li>
+                    <li><a id="login-button" class="button" href="#">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -43,7 +43,7 @@
                         <div class="place-price">
                             <p>$80 <br><small>per night</small></p>
                         </div>
-                        <div class="place-carrousel">
+                        <div class="card-img-container">
                             <img src="../static/images/places/01/01.jpg" alt="Seaside Serenity Cottage">
                         </div>
                         <div class="card-body">
@@ -60,7 +60,7 @@
                         <div class="place-price">
                             <p>$80 <br><small>per night</small></p>
                         </div>
-                        <div class="place-carrousel">
+                        <div class="card-img-container">
                             <img src="../static/images/places/01/01.jpg" alt="Seaside Serenity Cottage">
                         </div>
                         <div class="card-body">
@@ -77,7 +77,7 @@
                         <div class="place-price">
                             <p>$80 <br><small>per night</small></p>
                         </div>
-                        <div class="place-carrousel">
+                        <div class="card-img-container">
                             <img src="../static/images/places/01/01.jpg" alt="Seaside Serenity Cottage">
                         </div>
                         <div class="card-body">
@@ -94,7 +94,7 @@
                         <div class="place-price">
                             <p>$80 <br><small>per night</small></p>
                         </div>
-                        <div class="place-carrousel">
+                        <div class="card-img-container">
                             <img src="../static/images/places/01/01.jpg" alt="Seaside Serenity Cottage">
                         </div>
                         <div class="card-body">
@@ -111,7 +111,7 @@
                         <div class="place-price">
                             <p>$80 <br><small>per night</small></p>
                         </div>
-                        <div class="place-carrousel">
+                        <div class="card-img-container">
                             <img src="../static/images/places/01/01.jpg" alt="Seaside Serenity Cottage">
                         </div>
                         <div class="card-body">
@@ -128,7 +128,9 @@
                         <div class="place-price">
                             <p>$80 <br><small>per night</small></p>
                         </div>
-                        <img src="../static/images/places/01/01.jpg" alt="Seaside Serenity Cottage">
+                        <div class="card-img-container">
+                            <img src="../static/images/places/01/01.jpg" alt="Seaside Serenity Cottage">
+                        </div>
                         <div class="card-body">
                             <div class="card-header">
                                 <h2>Seaside Serenity Cottage</h2>   
@@ -148,5 +150,24 @@
             <p>© 2025 HBnB Evolution. All rights reserved.</p>
         </div>
     </footer>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-login">&times;</span>
+            <form id="login-form">
+                <h2>Login</h2>
+                <div>
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your email..." required>
+                </div>
+                <div>
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" name="password" placeholder="Your password...">
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="../static/js/script.js"></script>
 </body>
 </html>

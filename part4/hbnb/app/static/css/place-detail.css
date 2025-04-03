@@ -10,7 +10,7 @@
 }
 
 .place-amenities {
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -43,20 +43,11 @@
 .reviews-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
-    border-bottom: solid 1px #ddd;
     background-color: white;
 }
 
-.sticky {
-    position: unset;
-}
-
-.sticky-0{
-    top: unset;
-}
-
-.sticky-110{
-    top: unset;
+.review-list {
+    display: block;
 }
 
 .review-card:nth-child(odd) {
@@ -98,6 +89,7 @@ img.stars {
 }
 
 .columns {
+    position:relative;
     display: flex;
     gap: 20px;
     flex-direction: column;
@@ -108,7 +100,9 @@ img.stars {
 }
 
 .col-right {
-    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .top-padding {
@@ -122,23 +116,27 @@ img.stars {
 }
 
 @media screen and (width >= 79rem) {
-    .sticky {
-        position: sticky;
-    }
-
-    .sticky-0{
-        top: 0;
-    }
-
-    .sticky-110{
-        top:110px;
-    }
-
     .columns {
         flex-direction: row;
     }
 
     .col-right {
-        max-width: 40%;
+        width: 40%;
+    }
+
+    .review-list {
+        display: block;
+        overflow-y: auto;
+        position: absolute;
+        top:70px;
+        bottom: 0;
+        padding: 20px;
+        border:solid 1px #ddd;
+        border-radius: 10px;
+    }
+
+    .review-list::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 10px;
     }
 } 

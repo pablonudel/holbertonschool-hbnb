@@ -26,12 +26,12 @@ users = [
 ]
 
 places = [
-    {"title": "Seaside Serenity Cottage", "description": "Relax in our charming seaside cottage with stunning ocean views and tranquil sunsets. Perfect for a peaceful getaway.", "price": random.randint(20,80), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
-    {"title": "Urban Loft with City Skyline Views", "description": "Modern downtown loft with incredible city skyline views. Enjoy easy access to cafes, galleries, and nightlife.", "price": random.randint(20,80), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
-    {"title": "Mountain Retreat Cabin", "description": "Cozy, secluded mountain cabin surrounded by pines. Ideal for hiking and enjoying nature's quiet.", "price": random.randint(20,80), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
-    {"title": "Historic Townhouse in Old Quarter", "description": "Restored townhouse in the charming old quarter. Explore cobblestone streets and rich history.", "price": random.randint(20,80), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
-    {"title": "Tropical Paradise Bungalow", "description": "Secluded island bungalow with white sand beaches and clear waters. Perfect for a tropical escape.", "price": random.randint(20,80), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
-    {"title": "Rustic Farmhouse Getaway", "description": "Peaceful country farmhouse surrounded by rolling hills. Enjoy the simple pleasures of rural life.", "price": random.randint(20,80), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
+    {"title": "Seaside Serenity Cottage", "description": "Relax in our charming seaside cottage with stunning ocean views and tranquil sunsets. Perfect for a peaceful getaway.", "price": random.randint(15, 50), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
+    {"title": "Urban Loft with City Skyline Views", "description": "Modern downtown loft with incredible city skyline views. Enjoy easy access to cafes, galleries, and nightlife.", "price": 10, "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
+    {"title": "Mountain Retreat Cabin", "description": "Cozy, secluded mountain cabin surrounded by pines. Ideal for hiking and enjoying nature's quiet.", "price": random.randint(105, 120), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
+    {"title": "Historic Townhouse in Old Quarter", "description": "Restored townhouse in the charming old quarter. Explore cobblestone streets and rich history.", "price": random.randint(10, 120), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
+    {"title": "Tropical Paradise Bungalow", "description": "Secluded island bungalow with white sand beaches and clear waters. Perfect for a tropical escape.", "price": random.randint(10, 120), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
+    {"title": "Rustic Farmhouse Getaway", "description": "Peaceful country farmhouse surrounded by rolling hills. Enjoy the simple pleasures of rural life.", "price": random.randint(10, 120), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
 ]
 
 reviews = [

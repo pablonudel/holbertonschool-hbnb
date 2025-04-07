@@ -1,20 +1,15 @@
 import { loginBtn, logoutBtn, loginModal, closeLogin, loginForm, reviewBtn, reviewModal, closeReview, reviewForm } from "./htmlElements.js";
 import setupModal from "./modal.js";
+import { getCookie } from "./utils.js";
 
-function authentification() {
-    let token = null;
-    if (document.cookie) {
-        const tokenCookie = document.cookie.split('; ').find(row => row.startsWith('token='))
-        if (tokenCookie) {
-            token = tokenCookie.split('=')[1];
-        }
-    }
-    if (token) {
-        logoutBtn.classList.remove('hidden');
-        loginBtn.classList.add('hidden');
-    } else {
+function checkAuthentication() {
+    let token = getCookie('token');
+    if (!token) {
         loginBtn.classList.remove('hidden');
         logoutBtn.classList.add('hidden');
+    } else {
+        logoutBtn.classList.remove('hidden');
+        loginBtn.classList.add('hidden');
     }
     setupModal(loginBtn, loginModal, closeLogin, loginForm);
     setupModal(reviewBtn, reviewModal, closeReview, reviewForm);
@@ -22,12 +17,12 @@ function authentification() {
 
 function logout() {
     document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    authentification();
+    checkAuthentication();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    authentification();
+    checkAuthentication();
     logoutBtn.addEventListener('click', logout);
 })
 
-export { authentification }
+export { checkAuthentication }

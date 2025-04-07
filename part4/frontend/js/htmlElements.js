@@ -7,6 +7,8 @@ const closeReview = document.getElementsByClassName("close-review")[0];
 const loginForm = document.getElementById("login-form");
 const reviewForm = document.getElementById("review-form");
 const logoutBtn = document.getElementById('logout-button');
+const placesList = document.getElementById('places-list');
+const priceFilter = document.getElementById('price-filter')
 
 export {
     loginModal,
@@ -18,4 +20,6 @@ export {
     loginForm,
     reviewForm,
     logoutBtn,
+    placesList,
+    priceFilter
 }

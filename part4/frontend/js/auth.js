@@ -1,4 +1,4 @@
-import { loginBtn, logoutBtn, loginModal, closeLogin, loginForm, reviewBtn, reviewModal, closeReview, reviewForm } from "./htmlElements.js";
+import { loginBtn, logoutBtn, loginModal, closeLogin, loginForm } from "./htmlElements.js";
 import setupModal from "./modal.js";
 import { getCookie } from "./utils.js";
 

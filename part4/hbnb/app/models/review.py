@@ -21,7 +21,8 @@ class Review(BaseModel):
             "rating": self.rating,
             "text": self.text,
             "place_id": self.place_id,
-            "user_id": self.user_id
+            "user_id": self.user_id,
+            "updated_at": self.updated_at.strftime('%d/%m/%Y')
         }
 
     @validates('text')

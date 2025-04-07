@@ -26,7 +26,7 @@ async function displayPlaceDetail(place) {
                             <div class="card-body">
                                 <div class="place-host">
                                     <img class="avatar" src="./images/avatars/${avatar}.jpg" alt="avatar">
-                                    <p>Hosted by <strong>${place.owner.first_name}</strong><br><small>since 21/02/2000</small></p>
+                                    <p>Hosted by <strong>${place.owner.first_name}</strong><br><small>since ${place.created_at}</small></p>
                                 </div>
                                 <div class="place-description">
                                     <h2>Description</h2>

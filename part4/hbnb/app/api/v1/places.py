@@ -46,6 +46,14 @@ class PlaceList(Resource):
         """Retrieve a list of all places"""
         all_places = facade.get_all_places()
         places_list = [place.to_dict() for place in all_places]
+        for place in places_list:
+            reviews = facade.get_reviews_by_place(place.get("id"))
+            if reviews:
+                total_rating = sum(review.rating for review in reviews)
+                total_reviews = len(reviews)
+                place["ratingAvg"] = total_rating / total_reviews
+            else:
+                place["ratingAvg"] = 0
         return places_list, 200
 
 @api.route('/<place_id>')
@@ -63,6 +71,8 @@ class PlaceResource(Resource):
         del owner_data['is_admin']
         reviews_data = [review.to_dict() for review in place.reviews]
         for review in reviews_data:
+            review_user = facade.get_user(review.get("user_id"))
+            review["user_firstName"] = review_user.first_name
             del review['place_id'] 
         amenities_data = [amenity.to_dict() for amenity in place.place_amenities]
         place_dict = place.to_dict()

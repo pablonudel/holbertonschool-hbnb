@@ -25,7 +25,7 @@ async function displayPlaces(places, filterValue) {
     for (const place of filteredPlaces) {
         const imageName = place.title.toLowerCase().replace(/ /g, "-");
         // const avgRating = await getAvgRating(place.id);
-        const rating = place.placeRating.message ? place.placeRating.message : `<img class="star-icon" src="./images/star.svg" alt="star"><p>${place.placeRating.ratingAvg}</p>`
+        const rating = place.ratingAvg === 0 ? '<p>New place!</p>' : `<img class="star-icon" src="./images/star.svg" alt="star"><p>${place.ratingAvg.toFixed(1)}</p>`
         const placeCard = `<article class="place-card card-hover">
                 <div class="place-price">
                     <p>$${place.price} <br><small>per night</small></p>

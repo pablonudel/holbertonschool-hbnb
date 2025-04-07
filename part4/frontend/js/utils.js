@@ -9,19 +9,19 @@ function getCookie(name) {
     }
 }
 
-async function getAvgRating(placeId) {
-    const reviews = await fetchPlaceReviews(placeId);
-    if (reviews.length === 0) {
-        return 0
-    } else {
-        const totalRating = []
-        for (const review of reviews) {
-            totalRating.push(review.rating);
-        }
-        const total = totalRating.reduce((total, rating) => total + rating, 0);
-        const avgRating = (total / totalRating.length).toFixed(1);
-        return {ratingQty: totalRating.length, ratingAvg: avgRating}
-    }
-}
+// async function getAvgRating(placeId) {
+//     const reviews = await fetchPlaceReviews(placeId);
+//     if (reviews.length === 0) {
+//         return 0
+//     } else {
+//         const totalRating = []
+//         for (const review of reviews) {
+//             totalRating.push(review.rating);
+//         }
+//         const total = totalRating.reduce((total, rating) => total + rating, 0);
+//         const avgRating = (total / totalRating.length).toFixed(1);
+//         return {ratingQty: totalRating.length, ratingAvg: avgRating}
+//     }
+// }
 
-export {getCookie, getAvgRating}
+export {getCookie}

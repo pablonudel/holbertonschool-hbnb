@@ -18,11 +18,11 @@ amenities = [
 
 users = [
     {"first_name": "Jane", "last_name": "Doe", "email": "jane@email.com", "password": "jane1234", "role": "owner"},
-    {"first_name": "Peter", "last_name": "Parker", "email": "spiderman@email.com", "password": "peter1234", "role": "owner"},
+    {"first_name": "Jennifer", "last_name": "Smith", "email": "jennifer@email.com", "password": "jennifer1234", "role": "owner"},
     {"first_name": "Pablo", "last_name": "Nudel", "email": "pablo@email.com", "password": "pablo1234", "role": "owner"},
     {"first_name": "John", "last_name": "Doe", "email": "john@email.com", "password": "john1234", "role": "user"},
-    {"first_name": "Martin", "last_name": "Orza", "email": "martin@email.com", "password": "martin1234", "role": "user"},
-    {"first_name": "Sergio", "last_name": "Denis", "email": "sergio@email.com", "password": "sergio1234", "role": "user"},
+    {"first_name": "Mathieu", "last_name": "Bernard", "email": "mathieu@email.com", "password": "mathieu1234", "role": "user"},
+    {"first_name": "Morgane", "last_name": "Lardeux", "email": "morgane@email.com", "password": "morgane1234", "role": "user"},
 ]
 
 places = [
@@ -30,7 +30,7 @@ places = [
     {"title": "Urban Loft with City Skyline Views", "description": "Modern downtown loft with incredible city skyline views. Enjoy easy access to cafes, galleries, and nightlife.", "price": 10, "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
     {"title": "Mountain Retreat Cabin", "description": "Cozy, secluded mountain cabin surrounded by pines. Ideal for hiking and enjoying nature's quiet.", "price": random.randint(105, 120), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
     {"title": "Historic Townhouse in Old Quarter", "description": "Restored townhouse in the charming old quarter. Explore cobblestone streets and rich history.", "price": random.randint(10, 120), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
-    {"title": "Tropical Paradise Bungalow", "description": "Secluded island bungalow with white sand beaches and clear waters. Perfect for a tropical escape.", "price": random.randint(10, 120), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
+    {"title": "Tropical Paradise Bungalow", "description": "Secluded island bungalow with white sand beaches and clear waters. Perfect for a tropical escape.", "price": random.randint(50, 100), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
     {"title": "Rustic Farmhouse Getaway", "description": "Peaceful country farmhouse surrounded by rolling hills. Enjoy the simple pleasures of rural life.", "price": random.randint(10, 120), "latitude": random.uniform(-90.0, 90.0), "longitude": random.uniform(-180.0, 180.0)},
 ]
 

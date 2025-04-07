@@ -9,6 +9,8 @@ const reviewForm = document.getElementById("review-form");
 const logoutBtn = document.getElementById('logout-button');
 const placesList = document.getElementById('places-list');
 const priceFilter = document.getElementById('price-filter')
+const placeDetail = document.getElementById('place-detail')
+const placeTitle = document.getElementById('place-title');
 
 export {
     loginModal,
@@ -21,5 +23,7 @@ export {
     reviewForm,
     logoutBtn,
     placesList,
-    priceFilter
+    priceFilter,
+    placeDetail,
+    placeTitle
 }

@@ -54,4 +54,20 @@ async function fetchPlaceReviews(placeId) {
     }
 }
 
-export {loginUser, fetchPlaces, fetchPlaceReviews}
+async function fetchPlaceDetail(placeId) {
+    try {
+        const response = await fetch(`http://127.0.0.1:5000/api/v1/places/${placeId}`, {
+            method: 'GET'
+        });
+        if (!response.ok) {
+            throw new Error('Server error')
+        } else {
+            const data = await response.json();
+            return data;
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export {loginUser, fetchPlaces, fetchPlaceReviews, fetchPlaceDetail}

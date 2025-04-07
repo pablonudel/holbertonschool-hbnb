@@ -12,7 +12,6 @@ function checkAuthentication() {
         loginBtn.classList.add('hidden');
     }
     setupModal(loginBtn, loginModal, closeLogin, loginForm);
-    setupModal(reviewBtn, reviewModal, closeReview, reviewForm);
 }
 
 function logout() {

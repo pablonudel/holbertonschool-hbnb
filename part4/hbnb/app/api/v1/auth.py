@@ -7,7 +7,7 @@ api = Namespace('auth', description='Authentication operations')
 models = initialize_models(api)
 
 
-@api.route('/login')
+@api.route('/login', methods=['POST'])
 class Login(Resource):
     @api.expect(models['Login'])
     @api.response(200, 'User successfully loged', models['LoginResponse'])

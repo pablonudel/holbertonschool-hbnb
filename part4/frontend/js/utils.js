@@ -1,4 +1,4 @@
-import { fetchPlaceReviews } from "./fetches.js";
+// import { fetchPlaceReviews } from "./fetches.js";
 
 function getCookie(name) {
     if (document.cookie) {

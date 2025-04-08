@@ -10,7 +10,7 @@ from app import db
 from flask import current_app
 
 amenities = [
-    {"name": "WiFi"},
+    {"name": "Wifi"},
     {"name": "Swimming Pool"},
     {"name": "Air Conditioning"},
     {"name": "Parking"}

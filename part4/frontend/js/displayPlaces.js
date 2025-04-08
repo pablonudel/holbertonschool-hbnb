@@ -21,34 +21,32 @@ function filterPlaces(places, filterValue) {
 async function displayPlaces(places, filterValue) {
     const filteredPlaces = filterPlaces(places, filterValue);
     placesList.innerHTML = '';
-    const fragment = document.createDocumentFragment();
-    for (const place of filteredPlaces) {
+
+    const placesHTML = filteredPlaces.map(place => {
         const imageName = place.title.toLowerCase().replace(/ /g, "-");
-        // const avgRating = await getAvgRating(place.id);
-        const rating = place.ratingAvg === 0 ? '<p>New place!</p>' : `<img class="star-icon" src="./images/star.svg" alt="star"><p>${place.ratingAvg.toFixed(1)}</p>`
-        const placeCard = `<article class="place-card card-hover">
-                <div class="place-price">
-                    <p>$${place.price} <br><small>per night</small></p>
-                </div>
-                <div class="card-img-container">
-                    <img src="./images/places/${imageName}.jpg" alt="${place.title}">
-                </div>
-                <div class="card-body">
-                    <div class="card-header">
-                        <h2>${place.title}</h2>   
+        const rating = place.ratingAvg === 0 ? '<p>New place!</p>' : `<img class="star-icon" src="./images/star.svg" alt="star"><p>${place.ratingAvg.toFixed(1)}</p>`;
+        return `<article class="place-card card-hover">
+                    <div class="place-price">
+                        <p>$${place.price} <br><small>per night</small></p>
                     </div>
-                    <div class="flex-container">
-                        <div class="review-avg">${rating}</div>
-                        <a class="button details-button" href="./place_detail.html?id=${place.id}">More details</a>
+                    <div class="card-img-container">
+                        <img src="./images/places/${imageName}.jpg" alt="${place.title}">
                     </div>
-                </div>
-                </article>`
-        const tempDiv = document.createElement('div');
-        tempDiv.insertAdjacentHTML('beforeend', placeCard);
-        fragment.appendChild(tempDiv.firstChild);
-    }
-    placesList.append(fragment);
+                    <div class="card-body">
+                        <div class="card-header">
+                            <h2>${place.title}</h2>
+                        </div>
+                        <div class="flex-container">
+                            <div class="review-avg">${rating}</div>
+                            <a class="button details-button" href="./place_detail.html?id=${place.id}">More details</a>
+                        </div>
+                    </div>
+                </article>`;
+    }).join('');
+
+    placesList.innerHTML = placesHTML;
 }
+
 document.addEventListener('DOMContentLoaded', async () => {
     places = await fetchPlaces()
     displayPlaces(places, currentFilterValue);

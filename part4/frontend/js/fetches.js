@@ -1,5 +1,3 @@
-// import { getAvgRating } from "./utils.js";
-
 async function loginUser(email, password) {
     const response = await fetch('http://127.0.0.1:5000/api/v1/auth/login', {
         method: 'POST',

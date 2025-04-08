@@ -1,5 +1,3 @@
-import { reviewBtn } from "./htmlElements.js";
-
 function getCookie(name) {
     if (document.cookie) {
         const tokenCookie = document.cookie.split('; ').find(row => row.startsWith(`${name}=`))

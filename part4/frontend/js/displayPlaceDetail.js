@@ -2,15 +2,26 @@ import { placeDetail, placeTitle, placeReviews } from './htmlElements.js';
 import { fetchPlaceDetail } from './fetches.js';
 import { getUserId, setupModal } from './utils.js';
 
-let place = {}
+let place = {};
 
 function getPlaceIdFromURL() {
     const searchParams = new URLSearchParams(window.location.search);
-    const id = searchParams.get("id");
-    return id;
+    return searchParams.get("id");
 }
 
-const placeId = getPlaceIdFromURL();
+async function loadPlaceDetail() {
+    const placeId = getPlaceIdFromURL();
+    if (placeId) {
+        const fetchedPlace = await fetchPlaceDetail(placeId);
+        if (fetchedPlace) {
+            place = fetchedPlace;
+            displayPlaceDetail(place);
+            displayReviews(place);
+            setupReviewModal();
+            return place;
+        }
+    }
+}
 
 function displayPlaceDetail(place) {
     placeTitle.innerHTML = `<h1>${place.title}</h1>`;
@@ -53,15 +64,15 @@ function displayReviews(place) {
     const userId = getUserId();
     const isOwner = userId === place.owner.id;
     const reviewsQty = place.reviews.length;
-    
-    let reviewButton = '';
+
+    let reviewButtonHTML = '';
     if (userId && !isOwner) {
-        reviewButton = '<button id="review-button" class="button details-button show">Add Review</button>';
+        reviewButtonHTML = '<button id="review-button" class="button details-button show">Add Review</button>';
     }
 
-    let reviewsList = ''
+    let reviewsListHTML = '';
     if (reviewsQty > 0) {
-        reviewsList = `
+        reviewsListHTML = `
             <div class="reviews-header flex-container align-bottom">
                 <div>
                     <h2>Reviews</h2>
@@ -69,7 +80,7 @@ function displayReviews(place) {
                         <div class="review-avg"><img class="star-icon" src="./images/star.svg" alt="star"><p>${place.ratingAvg.toFixed(1)} / ${reviewsQty} ${reviewsQty > 1 ? 'reviews' : 'review'}</p></div>
                     </div>
                 </div>
-                ${reviewButton}
+                ${reviewButtonHTML}
             </div>
             <div class="review-list">
                 ${place.reviews.map(review => {
@@ -91,13 +102,15 @@ function displayReviews(place) {
                     </article>`
                 })}
             </div>
-        `
+        `;
     } else {
-        reviewsList = '<p>No reviews</p>'
+        reviewsListHTML = '<p>No reviews</p>';
     }
 
-    placeReviews.innerHTML = reviewsList;
+    placeReviews.innerHTML = reviewsListHTML;
+}
 
+function setupReviewModal() {
     const reviewBtn = document.getElementById('review-button');
     const reviewModal = document.getElementById("reviewModal");
     const closeReview = document.getElementsByClassName("close-review")[0];
@@ -108,10 +121,4 @@ function displayReviews(place) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    place = await fetchPlaceDetail(placeId);
-    displayPlaceDetail(place);
-    displayReviews(place); 
-})
-
-export {place, displayReviews}
+export { loadPlaceDetail, displayReviews, getPlaceIdFromURL, setupReviewModal, place };   

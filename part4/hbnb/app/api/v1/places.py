@@ -69,6 +69,9 @@ class PlaceResource(Resource):
 
         owner_data = place.owner.to_dict()
         del owner_data['is_admin']
+        
+        total_rating = sum(review.rating for review in place.reviews)
+        total_reviews = len(place.reviews)
         reviews_data = [review.to_dict() for review in place.reviews]
         for review in reviews_data:
             review_user = facade.get_user(review.get("user_id"))
@@ -79,6 +82,10 @@ class PlaceResource(Resource):
         place_dict['owner'] = owner_data
         place_dict['amenities'] = amenities_data
         place_dict['reviews'] = reviews_data
+        if place.reviews:
+            place_dict['ratingAvg'] = total_rating / total_reviews
+        else:
+            place_dict['ratingAvg'] = 0
 
         return place_dict, 200
 

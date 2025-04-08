@@ -1,6 +1,7 @@
 import { loginModal, loginForm } from './htmlElements.js';
 import { checkAuthentication } from './auth.js';
 import { loginUser } from './fetches.js';
+import { displayReviews, place } from './displayPlaceDetail.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
@@ -17,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.cookie = `token=${data.access_token}; path=/`;
                 loginModal.classList.remove('show');
                 loginForm.reset();
+                if (place) {
+                    displayReviews(place);
+                }
                 checkAuthentication();
             }
         });

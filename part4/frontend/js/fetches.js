@@ -1,3 +1,5 @@
+import { getCookie } from "./utils.js";
+
 async function loginUser(email, password) {
     const response = await fetch('http://127.0.0.1:5000/api/v1/auth/login', {
         method: 'POST',
@@ -27,26 +29,15 @@ async function fetchPlaces(){
     }
 }
 
-async function fetchPlaceReviews(placeId) {
-    try {
-        const response = await fetch(`http://127.0.0.1:5000/api/v1/places/${placeId}/reviews`, {
-            method: 'GET'
-        });
-        if (!response.ok) {
-            throw new Error('Server error')
-        } else {
-            const data = await response.json();
-            return data;
-        }
-    } catch (err) {
-        console.log(err);
-    }
-}
-
 async function fetchPlaceDetail(placeId) {
+    const token = getCookie('token')
     try {
         const response = await fetch(`http://127.0.0.1:5000/api/v1/places/${placeId}`, {
-            method: 'GET'
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
         });
         if (!response.ok) {
             throw new Error('Server error')
@@ -59,4 +50,4 @@ async function fetchPlaceDetail(placeId) {
     }
 }
 
-export {loginUser, fetchPlaces, fetchPlaceReviews, fetchPlaceDetail}
+export {loginUser, fetchPlaces, fetchPlaceDetail}

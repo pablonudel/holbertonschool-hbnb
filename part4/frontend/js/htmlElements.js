@@ -7,6 +7,8 @@ const placesList = document.getElementById('places-list');
 const priceFilter = document.getElementById('price-filter')
 const placeDetail = document.getElementById('place-detail')
 const placeTitle = document.getElementById('place-title');
+const placeReviews = document.getElementById('place-reviews');
+const reviewBtn = document.getElementById('review-button');
 
 export {
     loginModal,
@@ -17,5 +19,7 @@ export {
     placesList,
     priceFilter,
     placeDetail,
-    placeTitle
+    placeTitle,
+    placeReviews,
+    reviewBtn,
 }

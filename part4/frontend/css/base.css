@@ -70,6 +70,7 @@ a {
 }
 
 a.button, button.button {
+    display: none;
     padding: 0.5rem 1rem;
     border: solid 1px #ddd;
     border-radius: 32px;
@@ -78,6 +79,10 @@ a.button, button.button {
     transition: var(--shadow--transitions);
     cursor: pointer;
     box-shadow: none;
+}
+
+a.button.show, button.button.show{
+    display: unset;
 }
 
 a.button:hover, button.button:hover {

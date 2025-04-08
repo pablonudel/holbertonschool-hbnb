@@ -1,4 +1,4 @@
-// import { fetchPlaceReviews } from "./fetches.js";
+import { reviewBtn } from "./htmlElements.js";
 
 function getCookie(name) {
     if (document.cookie) {
@@ -9,19 +9,44 @@ function getCookie(name) {
     }
 }
 
-// async function getAvgRating(placeId) {
-//     const reviews = await fetchPlaceReviews(placeId);
-//     if (reviews.length === 0) {
-//         return 0
-//     } else {
-//         const totalRating = []
-//         for (const review of reviews) {
-//             totalRating.push(review.rating);
-//         }
-//         const total = totalRating.reduce((total, rating) => total + rating, 0);
-//         const avgRating = (total / totalRating.length).toFixed(1);
-//         return {ratingQty: totalRating.length, ratingAvg: avgRating}
-//     }
-// }
+function getUserId() {
+    try {
+        const token = getCookie('token');
+        if (!token) {
+            return null;
+        }
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
 
-export {getCookie}
+        const payload = JSON.parse(jsonPayload);
+        return payload.sub ? payload.sub.id : null;
+    } catch (error) {
+        console.error('Error decoding JWT:', error);
+        return null;
+    }
+}
+
+function setupModal(openBtn, modal, closeBtn, form) {
+    if (openBtn) {
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+            form.reset()
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('show');
+                form.reset()
+            }
+        })
+    }
+}
+
+export {getCookie, getUserId, setupModal}

@@ -13,16 +13,4 @@ function checkAuthentication() {
     setupModal(loginBtn, loginModal, closeLogin, loginForm);
 }
 
-function logout(currentPlace, displayReviews) {
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    if (window.location.pathname.includes('place_detail.html') && currentPlace && displayReviews) {
-        displayReviews(currentPlace);
-    }
-    checkAuthentication();
-}
-
-export {checkAuthentication, logout}
-
-document.addEventListener('DOMContentLoaded', () => {
-    checkAuthentication();
-});
+export {checkAuthentication}

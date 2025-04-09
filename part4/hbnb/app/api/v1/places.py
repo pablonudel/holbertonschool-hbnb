@@ -82,10 +82,6 @@ class PlaceResource(Resource):
         place_dict['owner'] = owner_data
         place_dict['amenities'] = amenities_data
         place_dict['reviews'] = reviews_data
-        if place.reviews:
-            place_dict['ratingAvg'] = total_rating / total_reviews
-        else:
-            place_dict['ratingAvg'] = 0
 
         return place_dict, 200
 

@@ -47,4 +47,9 @@ function setupModal(openBtn, modal, closeBtn, form) {
     }
 }
 
-export {getCookie, getUserId, setupModal}
+function getPlaceIdFromURL() {
+    const searchParams = new URLSearchParams(window.location.search);
+    return searchParams.get("id");
+}
+
+export {getCookie, getUserId, setupModal, getPlaceIdFromURL}

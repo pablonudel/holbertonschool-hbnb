@@ -1,6 +1,7 @@
 import { getCookie } from "./utils.js";
+import { checkAuthentication } from "./auth.js";
 
-async function loginUser(email, password) {
+async function login(email, password) {
     try {
         const response = await fetch('http://127.0.0.1:5000/api/v1/auth/login', {
             method: 'POST',
@@ -17,6 +18,14 @@ async function loginUser(email, password) {
     } catch (err) {
         console.log(err);
     }
+}
+
+function logout(currentPlace, displayReviews) {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    if (window.location.pathname.includes('place_detail.html') && currentPlace && displayReviews) {
+        displayReviews(currentPlace);
+    }
+    checkAuthentication();
 }
 
 async function fetchPlaces(){
@@ -57,16 +66,16 @@ async function fetchPlaceDetail(placeId) {
     }
 }
 
-async function submitReview(placeId, rating, text){
+async function submitReview(place_id, rating, text){
     const token = getCookie('token');
     try {
-        const response = await fetch(`http://127.0.0.1:5000/api/v1/reviews`, {
+        const response = await fetch(`http://127.0.0.1:5000/api/v1/reviews/`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({placeId, rating, text})
+            body: JSON.stringify({place_id, rating, text})
         })
         if (!response.ok) {
             throw new Error('Server error')
@@ -79,4 +88,4 @@ async function submitReview(placeId, rating, text){
     }
 }
 
-export {loginUser, fetchPlaces, fetchPlaceDetail, submitReview}
+export {login, logout, fetchPlaces, fetchPlaceDetail, submitReview}

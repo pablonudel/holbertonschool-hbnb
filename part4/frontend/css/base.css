@@ -69,7 +69,7 @@ a {
     line-height: 0;
 }
 
-a.button, button.button {
+.button, button:disabled {
     display: none;
     padding: 0.5rem 1rem;
     border: solid 1px #ddd;
@@ -81,11 +81,16 @@ a.button, button.button {
     box-shadow: none;
 }
 
-a.button.show, button.button.show{
+button:disabled {
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+}
+
+.button.show{
     display: unset;
 }
 
-a.button:hover, button.button:hover {
+.button:enabled:hover {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 

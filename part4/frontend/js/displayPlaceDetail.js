@@ -1,113 +1,141 @@
 import { placeDetail, placeTitle, placeReviews } from './htmlElements.js';
 import { fetchPlaceDetail } from './fetches.js';
-import { getUserId, setupModal } from './utils.js';
+import { getPlaceIdFromURL, getUserId, setupModal } from './utils.js';
 
-let place = {};
+let place = null;
 
-function getPlaceIdFromURL() {
-    const searchParams = new URLSearchParams(window.location.search);
-    return searchParams.get("id");
+function calcRatingAvg(reviews) {
+    const reviewsQty = reviews.length;
+    let totalRating = 0;
+    for (const review of reviews) {
+        totalRating += review.rating;
+    }
+    return totalRating / reviewsQty;
 }
 
 async function loadPlaceDetail() {
     const placeId = getPlaceIdFromURL();
     if (placeId) {
-        const fetchedPlace = await fetchPlaceDetail(placeId);
-        if (fetchedPlace) {
-            place = fetchedPlace;
+        place = await fetchPlaceDetail(placeId);
+        if (place) {
             displayPlaceDetail(place);
-            displayReviews(place);
+            displayReviews();
             setupReviewModal();
             return place;
         }
     }
+    return null;
 }
 
-function displayPlaceDetail(place) {
-    placeTitle.innerHTML = `<h1>${place.title}</h1>`;
-    const imageName = place.title.toLowerCase().replace(/ /g, "-");
-    const avatar = place.owner.first_name.toLowerCase();
-
-    placeDetail.innerHTML = `
-        <article class="place-card">
-            <div class="place-price">
-                <p>$${place.price} <br><small>per night</small></p>
-            </div>
-            <div class="card-img-container">
-                <img src="./images/places/${imageName}.jpg" alt="${place.title}">
-            </div>
-            <div class="card-body">
-                <div class="place-host">
-                    <img class="avatar" src="./images/avatars/${avatar}.jpg" alt="avatar">
-                    <p>Hosted by <strong>${place.owner.first_name}</strong><br><small>since ${place.created_at}</small></p>
-                </div>
-                <div class="place-description">
-                    <h2>Description</h2>
-                    <p>${place.description}</p>
-                </div>
-                <div class="place-amenities">
-                    <p>Amenities</p>
-                    ${place.amenities.map(amenity => {
-                        const amenityImageName = amenity.name.toLowerCase().replace(/ /g, "-");
-                        return `<div class="amenity tooltip">
-                                    <img src="./images/amenities/${amenityImageName}.svg" alt="${amenityImageName}"/>
-                                    <span class="tooltiptext"><small>${amenity.name}</small></span>
-                                </div>`;
-                    }).join('')}
-                </div>
-            </div>
-        </article>
-    `;
-}
-
-function displayReviews(place) {
-    const userId = getUserId();
-    const isOwner = userId === place.owner.id;
-    const reviewsQty = place.reviews.length;
-
-    let reviewButtonHTML = '';
-    if (userId && !isOwner) {
-        reviewButtonHTML = '<button id="review-button" class="button details-button show">Add Review</button>';
+function displayNewReview(review) {
+    console.log('displayNewReview called with:', review);
+    if (place) {
+        place.reviews.push(review);
+        displayReviews()
     }
+    //recalcular calcular el promedio
+}
 
-    let reviewsListHTML = '';
-    if (reviewsQty > 0) {
-        reviewsListHTML = `
-            <div class="reviews-header flex-container align-bottom">
-                <div>
-                    <h2>Reviews</h2>
-                    <div class="flex-container">
-                        <div class="review-avg"><img class="star-icon" src="./images/star.svg" alt="star"><p>${place.ratingAvg.toFixed(1)} / ${reviewsQty} ${reviewsQty > 1 ? 'reviews' : 'review'}</p></div>
+function createReviewElement(review) {
+    const avatarImageName = review.user_firstName.toLowerCase()
+    return `
+        <article class="review-card">
+            <div class="review-header">
+                <img class="avatar" src="./images/avatars/${avatarImageName}.jpg" alt="${avatarImageName}">
+                <div class="reviewer">
+                    <p><strong>${review.user_firstName}</strong></p>
+                    <div class="reviewer-stars">
+                        <div>
+                            <img class="stars" src="./images/${review.rating}-stars.svg" alt="${review.rating}-stars">
+                        </div>
+                        <p><small>- ${review.updated_at}</small></p>
                     </div>
                 </div>
-                ${reviewButtonHTML}
             </div>
-            <div class="review-list">
-                ${place.reviews.map(review => {
-                    const avatarImageName = review.user_firstName.toLowerCase()
-                    return `<article class="review-card">
-                        <div class="review-header">
-                            <img class="avatar" src="./images/avatars/${avatarImageName}.jpg" alt="${avatarImageName}">
-                            <div class="reviewer">
-                                <p><strong>${review.user_firstName}</strong></p>
-                                <div class="reviewer-stars">
-                                    <div>
-                                        <img class="stars" src="./images/${review.rating}-stars.svg" alt="${review.rating}-stars">
-                                    </div>
-                                    <p><small>- ${review.updated_at}</small></p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="review-text">${review.text}</p>
-                    </article>`
-                })}
-            </div>
-        `;
-    } else {
-        reviewsListHTML = '<p>No reviews</p>';
-    }
+            <p class="review-text">${review.text}</p>
+        </article>
+    `
+}
 
-    placeReviews.innerHTML = reviewsListHTML;
+function displayPlaceDetail() {
+    if (place) {
+        placeTitle.innerHTML = `<h1>${place.title}</h1>`;
+        const imageName = place.title.toLowerCase().replace(/ /g, "-");
+        const avatar = place.owner.first_name.toLowerCase();
+
+        placeDetail.innerHTML = `
+            <article class="place-card">
+                <div class="place-price">
+                    <p>$${place.price} <br><small>per night</small></p>
+                </div>
+                <div class="card-img-container">
+                    <img src="./images/places/${imageName}.jpg" alt="${place.title}">
+                </div>
+                <div class="card-body">
+                    <div class="place-host">
+                        <img class="avatar" src="./images/avatars/${avatar}.jpg" alt="avatar">
+                        <p>Hosted by <strong>${place.owner.first_name}</strong><br><small>since ${place.created_at}</small></p>
+                    </div>
+                    <div class="place-description">
+                        <h2>Description</h2>
+                        <p>${place.description}</p>
+                    </div>
+                    <div class="place-amenities">
+                        <p>Amenities</p>
+                        ${place.amenities.map(amenity => {
+                            const amenityImageName = amenity.name.toLowerCase().replace(/ /g, "-");
+                            return `<div class="amenity tooltip">
+                                        <img src="./images/amenities/${amenityImageName}.svg" alt="${amenityImageName}"/>
+                                        <span class="tooltiptext"><small>${amenity.name}</small></span>
+                                    </div>`;
+                        }).join('')}
+                    </div>
+                </div>
+            </article>
+        `;
+    }
+}
+
+function displayReviews() {
+    if (place) {
+        const userId = getUserId();
+        const isOwner = userId === place.owner.id;
+        const reviewsQty = place.reviews.length;
+        const isReviewed = place.reviews.find(review => review.user_id === userId)
+        const ratingAvg = calcRatingAvg(place.reviews)
+
+        let reviewButtonHTML = '';
+        if (userId && !isOwner) {
+            reviewButtonHTML = '<button id="review-button" class="button details-button show">Add Review</button>';
+        }
+        if (isReviewed) {
+            reviewButtonHTML = '<button class="button show" disabled>Already reviewed</button>';
+        }
+
+        let reviewsListHTML = '';
+        if (reviewsQty > 0) {
+            reviewsListHTML = `
+                <div class="reviews-header flex-container align-bottom">
+                    <div>
+                        <h2>Reviews</h2>
+                        <div class="flex-container">
+                            <div class="review-avg"><img class="star-icon" src="./images/star.svg" alt="star"><p>${ratingAvg.toFixed(1)} / ${reviewsQty} ${reviewsQty > 1 ? 'reviews' : 'review'}</p></div>
+                        </div>
+                    </div>
+                    ${reviewButtonHTML}
+                </div>
+                <div class="review-list">
+                    ${place.reviews.map(review => {
+                        return createReviewElement(review);
+                    })}
+                </div>
+            `;
+        } else {
+            reviewsListHTML = '<p>No reviews</p>';
+        }
+
+        placeReviews.innerHTML = reviewsListHTML;
+    }
 }
 
 function setupReviewModal() {
@@ -121,4 +149,4 @@ function setupReviewModal() {
     }
 }
 
-export { loadPlaceDetail, displayReviews, getPlaceIdFromURL, setupReviewModal, place };   
+export { loadPlaceDetail, displayReviews, getPlaceIdFromURL, setupReviewModal, displayNewReview, place };   

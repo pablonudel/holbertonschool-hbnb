@@ -1,22 +1,24 @@
 import './loginform.js';
 import { loadPlaceDetail, displayReviews } from './displayPlaceDetail.js';
-import { checkAuthentication, logout } from './auth.js';
+import { checkAuthentication } from './auth.js';
+import { logout } from './fetches.js';
+import './reviewform.js';
 
-function logoutListener(place, displayReviews) {
+function logoutListener(place = null) {
     const logoutButton = document.getElementById('logout-button');
     if (logoutButton) {
-        logoutButton.addEventListener('click', () => logout(place, displayReviews));
+        logoutButton.addEventListener('click', () => logout(place, () => displayReviews()));
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     checkAuthentication();
 
     if (window.location.pathname.includes('place_detail.html')) {
-        loadPlaceDetail().then(loadedPlace => {
-            logoutListener(loadedPlace, displayReviews);
+        loadPlaceDetail().then(place => {
+            logoutListener(place);
         });
     } else {
-        logoutListener(null, null);
+        logoutListener();
     }
 });

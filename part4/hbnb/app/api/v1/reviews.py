@@ -8,7 +8,7 @@ api = Namespace('reviews', description='User operations')
 models = initialize_models(api)
 
 
-@api.route('/')
+@api.route('/', methods=['POST', 'GET'])
 class ReviewList(Resource):
     @api.expect(models['ReviewCreate'])
     @api.response(201, 'Review successfully created', models['ReviewResponse'])
@@ -43,10 +43,12 @@ class ReviewList(Resource):
             api.abort(400, "Place already reviewed")
         
         review_data["place_id"] = place.id
+        
 
         try:
             new_review = facade.create_review(review_data)
             review_dict = new_review.to_dict()
+            review_dict["user_firstName"] = user.first_name
         except (ValueError, TypeError) as e:
             api.abort(400, str(e))
 

@@ -35,9 +35,10 @@ async function fetchPlaces(){
         });
         if (!response) {
             throw new Error('Server error');
+        } else {
+            const data = await response.json();
+            return data;
         }
-        const data = await response.json();
-        return data;
     } catch (err) {
         console.log(err);
     }

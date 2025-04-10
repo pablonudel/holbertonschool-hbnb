@@ -17,8 +17,10 @@ async function loadPlaceDetail() {
     const placeId = getPlaceIdFromURL();
     if (placeId) {
         place = await fetchPlaceDetail(placeId);
-        if (place) {
-            displayPlaceDetail(place);
+        if (place.message) {
+            placeTitle.innerHTML = `<h1>Sorry, the location you search is not found. 😕</h1>`;
+        } else {
+            displayPlaceDetail();
             displayReviews();
             setupReviewModal();
             setupLoginModal();
@@ -34,7 +36,6 @@ function displayNewReview(review) {
         place.reviews.push(review);
         displayReviews()
     }
-    //recalcular calcular el promedio
 }
 
 function createReviewElement(review) {

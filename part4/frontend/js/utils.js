@@ -27,7 +27,7 @@ function getUserId() {
     }
 }
 
-function setupModal(openBtn, modal, closeBtn, form) {
+function setupModal(openBtn, modal, closeBtn, loginError, form) {
     if (openBtn) {
         openBtn.addEventListener('click', () => {
             modal.classList.add('show');
@@ -35,12 +35,14 @@ function setupModal(openBtn, modal, closeBtn, form) {
 
         closeBtn.addEventListener('click', () => {
             modal.classList.remove('show');
+            loginError.innerHTML = '';
             form.reset()
         });
 
         window.addEventListener('click', (event) => {
             if (event.target === modal) {
                 modal.classList.remove('show');
+                loginError.innerHTML = '';
                 form.reset()
             }
         })

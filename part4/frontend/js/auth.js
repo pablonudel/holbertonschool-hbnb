@@ -1,4 +1,4 @@
-import { loginBtn, logoutBtn, loginModal, closeLogin, loginForm } from "./htmlElements.js";
+import { loginBtn, logoutBtn, loginModal, closeLogin, loginForm, loginError } from "./htmlElements.js";
 import { getCookie, setupModal } from "./utils.js";
 
 function checkAuthentication() {
@@ -10,7 +10,7 @@ function checkAuthentication() {
         logoutBtn.classList.add('show');
         loginBtn.classList.remove('show');
     }
-    setupModal(loginBtn, loginModal, closeLogin, loginForm);
+    setupModal(loginBtn, loginModal, closeLogin, loginError, loginForm);
 }
 
 export {checkAuthentication}

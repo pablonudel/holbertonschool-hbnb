@@ -11,6 +11,7 @@ const placeDetail = document.getElementById('place-detail')
 const placeTitle = document.getElementById('place-title');
 const placeReviews = document.getElementById('place-reviews');
 const reviewBtn = document.getElementById('review-button');
+const loginError = document.getElementById('login-error');
 
 export {
     loginModal,
@@ -26,4 +27,5 @@ export {
     reviewBtn,
     reviewForm,
     reviewModal,
+    loginError
 }

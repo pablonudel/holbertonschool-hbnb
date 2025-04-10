@@ -81,6 +81,17 @@
     cursor: pointer;
 }
 
+.error-message {
+    display: block;
+    padding: 10px;
+    background-color: #FF6467;
+    border-radius: 5px;
+    border: solid 1px var(--color--red);
+    color: white;
+    text-align: center;
+    margin-top: 0;
+}
+
 @keyframes animatetop {
   from {margin-top: 50px; opacity: 0}
   to {margin-top: 0; opacity: 1}

@@ -10,7 +10,7 @@ async function login(email, password) {
             },
             body: JSON.stringify({ email, password })
         });
-        if (!response.ok) {
+        if (!response) {
             throw new Error('Server error');
         }
         const data = await response.json()
@@ -33,13 +33,11 @@ async function fetchPlaces(){
         const response = await fetch('http://127.0.0.1:5000/api/v1/places', {
             method: 'GET'
         });
-        if (!response.ok) {
+        if (!response) {
             throw new Error('Server error');
         }
-
         const data = await response.json();
         return data;
-
     } catch (err) {
         console.log(err);
     }
@@ -55,7 +53,7 @@ async function fetchPlaceDetail(placeId) {
                 'Content-Type': 'application/json'
             }
         });
-        if (!response.ok) {
+        if (!response) {
             throw new Error('Server error')
         } else {
             const data = await response.json();
@@ -77,7 +75,7 @@ async function submitReview(place_id, rating, text){
             },
             body: JSON.stringify({place_id, rating, text})
         })
-        if (!response.ok) {
+        if (!response) {
             throw new Error('Server error')
         } else {
             const data = await response.json();

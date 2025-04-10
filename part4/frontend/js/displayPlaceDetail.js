@@ -164,9 +164,10 @@ function setupLoginModal() {
     const loginModal = document.getElementById("loginModal");
     const closeLogin = document.getElementsByClassName("close-login")[0];
     const loginForm = document.getElementById("login-form");
+    const loginError = document.getElementById('login-error');
 
     if (loginLink) {
-        setupModal(loginLink, loginModal, closeLogin, loginForm);
+        setupModal(loginLink, loginModal, closeLogin, loginError, loginForm);
     }
 }
 

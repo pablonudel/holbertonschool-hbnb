@@ -140,7 +140,7 @@ function displayReviews() {
                     </div>
                     `;
             } else {
-                reviewsListHTML = '<div class="no-reviews"><p>Be the first to review this location!<br><a href="#" class="login-link">Login</a> to share your experience.</p></div>';
+                reviewsListHTML = '<div class="no-reviews"><p>Be the first to review this location!<br><a id="login-link" href="#login-link" class="login-link">Login</a> to share your experience.</p></div>';
             }
         }
 
@@ -153,9 +153,10 @@ function setupReviewModal() {
     const reviewModal = document.getElementById("reviewModal");
     const closeReview = document.getElementsByClassName("close-review")[0];
     const reviewForm = document.getElementById("review-form");
+    const reviewError = document.getElementById('review-error');
 
     if (reviewBtn) {
-        setupModal(reviewBtn, reviewModal, closeReview, reviewForm);
+        setupModal(reviewBtn, reviewModal, closeReview, reviewError, reviewForm);
     }
 }
 

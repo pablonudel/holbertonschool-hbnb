@@ -1,4 +1,4 @@
-import { placeDetail, placeTitle, placeReviews } from './htmlElements.js';
+import { placeDetail, placeTitle, placeReviews} from './htmlElements.js';
 import { fetchPlaceDetail } from './fetches.js';
 import { getPlaceIdFromURL, getUserId, setupModal } from './utils.js';
 
@@ -21,6 +21,7 @@ async function loadPlaceDetail() {
             displayPlaceDetail(place);
             displayReviews();
             setupReviewModal();
+            setupLoginModal();
             return place;
         }
     }
@@ -131,7 +132,16 @@ function displayReviews() {
                 </div>
             `;
         } else {
-            reviewsListHTML = '<p>No reviews</p>';
+            if (userId) {
+                reviewsListHTML = `
+                    <div class="no-reviews">
+                        <p>Be the first to review this location!</p>
+                        <button id="review-button" class="button details-button show">Add Review</button>
+                    </div>
+                    `;
+            } else {
+                reviewsListHTML = '<div class="no-reviews"><p>Be the first to review this location!<br><a href="#" class="login-link">Login</a> to share your experience.</p></div>';
+            }
         }
 
         placeReviews.innerHTML = reviewsListHTML;
@@ -149,4 +159,15 @@ function setupReviewModal() {
     }
 }
 
-export { loadPlaceDetail, displayReviews, getPlaceIdFromURL, setupReviewModal, displayNewReview, place };   
+function setupLoginModal() {
+    const loginLink = document.getElementsByClassName('login-link')[0];
+    const loginModal = document.getElementById("loginModal");
+    const closeLogin = document.getElementsByClassName("close-login")[0];
+    const loginForm = document.getElementById("login-form");
+
+    if (loginLink) {
+        setupModal(loginLink, loginModal, closeLogin, loginForm);
+    }
+}
+
+export { loadPlaceDetail, displayReviews, getPlaceIdFromURL, setupReviewModal, setupLoginModal, displayNewReview, place };

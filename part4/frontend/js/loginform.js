@@ -1,7 +1,7 @@
 import { loginModal, loginForm } from './htmlElements.js';
 import { checkAuthentication } from './auth.js';
 import { login } from './fetches.js';
-import { loadPlaceDetail, displayReviews, setupReviewModal } from './displayPlaceDetail.js';
+import { loadPlaceDetail, displayReviews, setupReviewModal, setupLoginModal } from './displayPlaceDetail.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (place) {
                         displayReviews();
                         setupReviewModal();
+                        setupLoginModal();
                     }
                 });
 

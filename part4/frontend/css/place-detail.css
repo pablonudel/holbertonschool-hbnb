@@ -128,6 +128,28 @@ img.stars {
     padding-top: 40px;
 }
 
+.no-reviews{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: dashed 2px #ddd;
+    text-align: center;
+}
+
+.login-link {
+    font-weight: 700;
+    color: var(--color--red);
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
 @media screen and (width >= 54rem) {
     .place-card-columns {
         flex-direction: row;
@@ -149,6 +171,7 @@ img.stars {
 
     .review-list {
         display: block;
+        width: inherit;
         overflow-y: auto;
         position: absolute;
         top:80px;

@@ -125,7 +125,7 @@ function displayReviews() {
                 <div class="review-list">
                     ${place.reviews.map(review => {
                         return createReviewElement(review);
-                    })}
+                    }).join('')}
                 </div>
             `;
         } else {

@@ -1,5 +1,5 @@
 
-# HBnB Evolution: A Simple AirBnB Clone
+# HBnB Evolution:
 
 **HBnB Evolution** is a basic clone of the popular AirBnB platform, developed as part of the Holberton School curriculum. This project demonstrates a fundamental understanding of full-stack web development by implementing a Flask-based backend and a simple web client built with HTML, CSS, and JavaScript with few functionalities.
 

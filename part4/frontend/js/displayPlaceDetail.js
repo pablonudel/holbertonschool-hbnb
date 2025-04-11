@@ -82,7 +82,6 @@ function displayPlaceDetail() {
                     <div class="place-amenities">
                         <p>Amenities</p>
                         ${place.amenities.map(amenity => {
-                            // const amenityImageName = amenity.name.toLowerCase().replace(/ /g, "-");
                             return `<div class="amenity tooltip">
                                         <img src="./images/amenities/${amenity.id}.svg" alt="${amenity.name}"/>
                                         <span class="tooltiptext"><small>${amenity.name}</small></span>

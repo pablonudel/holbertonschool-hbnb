@@ -63,7 +63,7 @@ if you are using **Visual Studio Code** and you want to use the **Live Server ex
 
 **1.** Install the **Live Server extension (by Ritwick Dey)** in **Visual Studio Code**.
 
-**2.** Go to the Extesion tab on the rigth and find **Live Server**.
+**2.** Go to the Extesion tab on the left and find **Live Server**.
 
 **3.** Right clic over the extesion and go to `Settings`
 

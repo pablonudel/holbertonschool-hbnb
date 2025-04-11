@@ -5,7 +5,7 @@
 
 The backend is designed to manage and serve data related to places, users, and reviews. Upon launching the backend server, a database is automatically populated with sample data, allowing for immediate testing of the implemented functionalities.
 
-For know more about the Backend, check the Readme in `/holbertonschool-hbnb/holbertonschool-hbnb/part4/hbnb` directory
+For know more about the Backend, check the Readme in `/holbertonschool-hbnb/part4/hbnb` directory
 
 The key features of the Frontend are:
 * **Viewing Places:** Users can browse a list of available places filtered by max price.

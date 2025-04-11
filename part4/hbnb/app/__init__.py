@@ -17,8 +17,11 @@ from app.api.v1.places import api as places_ns
 from app.api.v1.reviews import api as reviews_ns
 from app.api.v1.auth import api as auth_ns
 from app.api.v1.admin import api as admin_ns
-from app.services.utils.create_admin import create_admin_user
-from app.services.utils.db_populate import db_populate
+from app.services.utils.init_data import db_init_data
+        
+db_path = './instance/development.db'
+sql_script_path = './initial_data.sql'
+
 
 def create_app(config_class="config.DevelopmentConfig"):
     app = Flask(__name__)
@@ -47,7 +50,8 @@ def create_app(config_class="config.DevelopmentConfig"):
 
     with app.app_context():
         db.create_all()
-        create_admin_user()
-        db_populate()
+        # create_admin_user()
+        db_init_data(db_path, sql_script_path)
+        # db_populate()
 
     return app

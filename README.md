@@ -5,7 +5,7 @@
 
 The backend is designed to manage and serve data related to places, users, and reviews. Upon launching the backend server, a database is automatically populated with sample data, allowing for immediate testing of the implemented functionalities.
 
-For know more about the Backend: 
+For know more about the Backend, check the Readme in `/part4/hbnb` directory
 
 The key features of the Frontend are:
 * **Viewing Places:** Users can browse a list of available places filtered by max price.
@@ -33,12 +33,13 @@ pip install -r requirements.txt
 ```
 
 ### Run the servers!
-#### Backend
+#### ▶︎ Backend
 Navigate to the `/part4/hbnb` directory in your terminal and run the following command:
 ```bash
 python3 run.py
 ```
-#### Frontend
+---
+#### ▶︎ Frontend
 You will need a way to serve the static frontend files. Here I will cover to options: **NodeJS** and **Live Server for Visual Studio Code**.
 
 **A. NodeJS**
@@ -47,7 +48,6 @@ If you have **NodeJS** installed globally, open a new terminal window, navigate 
 ```bash
 node run.js
 ```
-
 **B. Live Sever**
 
 > [!IMPORTANT]  

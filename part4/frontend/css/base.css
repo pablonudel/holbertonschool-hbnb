@@ -83,7 +83,7 @@ a {
 
 button:disabled {
     background-color: #f9f9f9;
-    cursor: not-allowed;
+    cursor: auto;
 }
 
 .button.show{

@@ -1,5 +1,5 @@
 
-# HBnB Evolution
+# HBnB Evolution: A Simple AirBnB Clone
 
 **HBnB Evolution** is a basic clone of the popular AirBnB platform, developed as part of the Holberton School curriculum. This project demonstrates a fundamental understanding of full-stack web development by implementing a Flask-based backend and a simple web client built with HTML, CSS, and JavaScript with few functionalities.
 
@@ -16,23 +16,27 @@ The key features of the Frontend are:
     * Each user is limited to submitting only one review per place.
 
 
-## Getting Started
-Follow these instructions to set up and run the HBnB Evolution project on your local machine.
-
-### Prerequisites
+## Prerequisites
 Before you begin, ensure you have the following installed:
 
 * **Python 3.x:** The backend is built using Python.
 * **pip:** Python package installer (usually comes with Python).
 
-#### Backend Dependencies:
+#### Clone the repository:
+
+```bash
+git clone https://github.com/pablonudel/holbertonschool-hbnb.git
+```
+
+#### Install Backend Dependencies:
 Navigate to the `/part4/hbnb` directory in your terminal and run the following command to install the necessary Python packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run the servers!
+
+## Get Started!
 #### ▶︎ Backend
 Navigate to the `/part4/hbnb` directory in your terminal and run the following command:
 ```bash
@@ -72,9 +76,7 @@ if you are using **Visual Studio Code** and you want to use the **Live Server ex
 ```
 
 **6.** Finally, open the `index.html` file in the `/part4/frontend` directory and run the **Live Server**
-
-
-## Available Users
+## Available users for testing
 As the database is created and populated on backend run, here is the list of users credentials to test the frontend functionalities:
 
 email: jane@email.com  

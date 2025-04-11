@@ -39,11 +39,10 @@ function displayNewReview(review) {
 }
 
 function createReviewElement(review) {
-    const avatarImageName = review.user_firstName.toLowerCase()
     return `
         <article class="review-card">
             <div class="review-header">
-                <img class="avatar" src="./images/avatars/${avatarImageName}.jpg" alt="${avatarImageName}">
+                <img class="avatar" src="./images/avatars/${review.user_id}.jpg" alt="${review.user_firstName}">
                 <div class="reviewer">
                     <p><strong>${review.user_firstName}</strong></p>
                     <div class="reviewer-stars">
@@ -62,8 +61,6 @@ function createReviewElement(review) {
 function displayPlaceDetail() {
     if (place) {
         placeTitle.innerHTML = `<h1>${place.title}</h1>`;
-        const imageName = place.title.toLowerCase().replace(/ /g, "-");
-        const avatar = place.owner.first_name.toLowerCase();
 
         placeDetail.innerHTML = `
             <article class="place-card">
@@ -71,11 +68,11 @@ function displayPlaceDetail() {
                     <p>$${place.price} <br><small>per night</small></p>
                 </div>
                 <div class="card-img-container">
-                    <img src="./images/places/${imageName}.jpg" alt="${place.title}">
+                    <img src="./images/places/${place.id}.jpg" alt="${place.title}">
                 </div>
                 <div class="card-body">
                     <div class="place-host">
-                        <img class="avatar" src="./images/avatars/${avatar}.jpg" alt="avatar">
+                        <img class="avatar" src="./images/avatars/${place.owner.id}.jpg" alt="avatar">
                         <p>Hosted by <strong>${place.owner.first_name}</strong><br><small>since ${place.created_at}</small></p>
                     </div>
                     <div class="place-description">

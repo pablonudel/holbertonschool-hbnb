@@ -23,7 +23,6 @@ async function displayPlaces(places, filterValue) {
     placesList.innerHTML = '';
 
     const placesHTML = filteredPlaces.map(place => {
-        const imageName = place.title.toLowerCase().replace(/ /g, "-");
         const rating = place.ratingAvg === 0 ? '<p>New place!</p>' : `<img class="star-icon" src="./images/star.svg" alt="star"><p>${place.ratingAvg.toFixed(1)}</p>`;
         return `
             <article class="place-card card-hover">
@@ -31,7 +30,7 @@ async function displayPlaces(places, filterValue) {
                     <p>$${place.price} <br><small>per night</small></p>
                 </div>
                 <div class="card-img-container">
-                    <img src="./images/places/${imageName}.jpg" alt="${place.title}">
+                    <img src="./images/places/${place.id}.jpg" alt="${place.title}">
                 </div>
                 <div class="card-body">
                     <div class="card-header">

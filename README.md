@@ -5,7 +5,7 @@
 
 The backend is designed to manage and serve data related to places, users, and reviews. Upon launching the backend server, a database is automatically populated with sample data, allowing for immediate testing of the implemented functionalities.
 
-For know more about the Backend, check the Readme in `/part4/hbnb` directory
+For know more about the Backend, check the Readme in `/holbertonschool-hbnb/holbertonschool-hbnb/part4/hbnb` directory
 
 The key features of the Frontend are:
 * **Viewing Places:** Users can browse a list of available places filtered by max price.
@@ -29,7 +29,7 @@ git clone https://github.com/pablonudel/holbertonschool-hbnb.git
 ```
 
 #### Install Backend Dependencies:
-Navigate to the `/part4/hbnb` directory in your terminal and run the following command to install the necessary Python packages:
+Navigate to the `/holbertonschool-hbnb/part4/hbnb` directory in your terminal and run the following command to install the necessary Python packages:
 
 ```bash
 pip install -r requirements.txt
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 ## Get Started!
 #### ▶︎ Backend
-Navigate to the `/part4/hbnb` directory in your terminal and run the following command:
+Navigate to the `/holbertonschool-hbnb/part4/hbnb` directory in your terminal and run the following command:
 ```bash
 python3 run.py
 ```
@@ -48,10 +48,12 @@ You will need a way to serve the static frontend files. Here I will cover to opt
 
 **A. NodeJS**
 
-If you have **NodeJS** installed globally, open a new terminal window, navigate to the `/part4/frontend` directory and run the following command:
+If you have **NodeJS** installed globally, open a new terminal window, navigate to the `/holbertonschool-hbnb/part4/frontend` directory and run the following command:
 ```bash
 node run.js
 ```
+Then open your browser and go to `http://localhost:3000/`
+
 **B. Live Sever**
 
 > [!IMPORTANT]  
@@ -75,7 +77,7 @@ if you are using **Visual Studio Code** and you want to use the **Live Server ex
 ]
 ```
 
-**6.** Finally, open the `index.html` file in the `/part4/frontend` directory and run the **Live Server**
+**6.** Finally, open the `index.html` file in the `/holbertonschool-hbnb/part4/frontend` directory and run the **Live Server**
 ## Available users for testing
 As the database is created and populated on backend run, here is the list of users credentials to test the frontend functionalities:
 

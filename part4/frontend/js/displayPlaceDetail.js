@@ -133,11 +133,17 @@ function displayReviews() {
                 </div>
             `;
         } else {
-            if (userId) {
+            if (userId && !isOwner) {
                 reviewsListHTML = `
                     <div class="no-reviews">
                         <p>Be the first to review this location!</p>
                         <button id="review-button" class="button details-button show">Add Review</button>
+                    </div>
+                    `;
+            } else if (userId && isOwner) {
+                reviewsListHTML = `
+                    <div class="no-reviews">
+                        <p>Your location doesn't have any reviews yet.</p>
                     </div>
                     `;
             } else {

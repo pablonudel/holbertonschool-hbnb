@@ -4,5 +4,4 @@ flask-bcrypt
 flask-jwt-extended
 sqlalchemy
 flask-sqlalchemy
-python-dotenv
 flask-cors

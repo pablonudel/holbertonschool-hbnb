@@ -44,7 +44,7 @@ python3 run.py
 ```
 ---
 #### ▶︎ Frontend
-You will need a way to serve the static frontend files. Here I will cover to options: **NodeJS** and **Live Server for Visual Studio Code**.
+You will need a way to serve the static frontend files. Here I will cover two options: **NodeJS** and **Live Server for Visual Studio Code**.
 
 **A. NodeJS**
 
